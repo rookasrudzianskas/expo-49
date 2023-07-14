@@ -1,5 +1,6 @@
 import { View, Pressable, StyleSheet, Image } from "react-native";
 import React from "react";
+import { BlurView } from "expo-blur";
 
 type FullScreenImageProps = {
   url?: string | null;
@@ -13,7 +14,7 @@ const FullScreenImage = ({ url, onClose }: FullScreenImageProps) => {
 
   return (
     <Pressable onPress={onClose} style={StyleSheet.absoluteFill}>
-      <View
+      <BlurView
         style={{
           justifyContent: "center",
           flex: 1,
@@ -24,7 +25,7 @@ const FullScreenImage = ({ url, onClose }: FullScreenImageProps) => {
           source={{ uri: url }}
           style={{ width: "100%", aspectRatio: 16 / 9 }}
         />
-      </View>
+      </BlurView>
     </Pressable>
   );
 };

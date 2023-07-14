@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Image, StyleSheet } from "react-native";
+import { View, Text, Pressable, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { Apod } from "../types";
 import { Link } from "expo-router";
@@ -13,13 +13,13 @@ const ApodListItem = ({ apod, onImagePress = () => {} }: ApodListItemProps) => {
 
   return (
     <View style={styles.item}>
-      <Pressable onPress={onImagePress}>
+      <TouchableOpacity activeOpacity={0.7} onPress={onImagePress}>
         <Image source={{ uri: url }} style={styles.image} />
-      </Pressable>
+      </TouchableOpacity>
       <Text style={styles.date}>{date}</Text>
 
       <Link href={`/apod/${date}`} asChild>
-        <Pressable style={styles.content}>
+        <TouchableOpacity activeOpacity={0.7} style={styles.content}>
           <Text style={styles.title}>{title}</Text>
 
           {copyright && (
@@ -27,7 +27,7 @@ const ApodListItem = ({ apod, onImagePress = () => {} }: ApodListItemProps) => {
               © {copyright?.trim()?.replaceAll("\n", "")}
             </Text>
           )}
-        </Pressable>
+        </TouchableOpacity>
       </Link>
     </View>
   );
