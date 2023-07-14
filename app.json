@@ -30,7 +30,16 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
-    ]
+      [
+        "expo-router",
+        {
+          "asyncRoutes": "development"
+        }
+      ]
+    ],
+    "experiments": {
+      "tsconfigPaths": true,
+      "typedRoutes": true
+    }
   }
 }
